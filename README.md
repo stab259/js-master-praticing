@@ -5,4 +5,5 @@ Branches:
 
 <ul>
   <li>section/fundamentals-part-1</li>
+  <li>section/fundamentals-part-2</li>
 </ul>
