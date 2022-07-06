@@ -25,9 +25,71 @@ const restaurant = {
   },
   orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+  orderPasta(ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
   }
 };
 
+console.log('THE SPREAD OPERATOR (...)');
+//////////////////////////////////
+// The spread operator
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'White Pizza'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(mainMenu);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Nhien';
+const letters = [...str, ' ', 'T.'];
+console.log(letters);
+console.log(str);
+// console.log(`${...str} Tran`); //error
+
+const ingredients = [
+  prompt('Let\'s make pasta! Ingredient 1?'),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3'),
+]
+
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = {
+  foundIn: 2001,
+  ...restaurant,
+  founder: 'Stab259'
+};
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurant.name = 'The best JUICE';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+
+console.log('DESTRUCTURING OBJECTS');
+/*
+/////////////////////////////////
+// Destructuring Objects
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Nhien\'s home',
@@ -62,7 +124,9 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+*/
 
+console.log('DESTRUCTURING ARRAYS');
 /*
 //////////////////////////////////////
 // Destructuring Arrays
