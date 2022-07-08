@@ -28,12 +28,109 @@ const restaurant = {
   },
   orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
   }
 };
 
-console.log('THE SPREAD OPERATOR (...)');
+
+console.log('THE NULLISH COALESCING OPERATOR (??)');
+/*
 //////////////////////////////////
-// The spread operator
+// The Nullish Coalescing Operator (??)
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nulish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+*/
+
+console.log('SHORT CIRCUITING (&&A ND ||)');
+/*
+///////////////////////////////////
+// Short circuiting (&& and ||)
+
+console.log('---- OR ----');
+// Use ANY data type, return ANY data type, short-circuting
+console.log(3 || 'Nhien');
+console.log('' || 'Nhien');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---- AND ----');
+console.log(0 && 'Nhien');
+console.log(7 && 'Nhien');
+
+console.log('Hello' && 23 && null && 'nhien');
+
+// Pratical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+*/
+
+console.log('REST PATTERN AND PARAMETERS');
+/*
+///////////////////////////////////
+// Rest Pattern and Parameters
+// 1) Destructuring
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of = 
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+*/
+
+console.log('THE SPREAD OPERATOR (...)');
+/*
+//////////////////////////////////
+// The spread operator (...)
+
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
@@ -84,12 +181,13 @@ const restaurantCopy = { ...restaurant };
 restaurant.name = 'The best JUICE';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
-
+*/
 
 console.log('DESTRUCTURING OBJECTS');
 /*
 /////////////////////////////////
 // Destructuring Objects
+
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Nhien\'s home',
@@ -130,6 +228,7 @@ console.log('DESTRUCTURING ARRAYS');
 /*
 //////////////////////////////////////
 // Destructuring Arrays
+
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
