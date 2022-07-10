@@ -36,6 +36,45 @@ const restaurant = {
 };
 
 
+console.log('LOGICAL ASSIGNMENT OPERATORS');
+
+/*
+///////////////////////////////////////
+// Logical Assginment Operators
+
+const rest1 = {
+  name: 'Best Grape Pizza',
+  // numGuests: 25,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'Best Strawberry Pizza',
+  owner: 'DD',
+};
+
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assginment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+*/
+
+
 console.log('THE NULLISH COALESCING OPERATOR (??)');
 /*
 //////////////////////////////////
